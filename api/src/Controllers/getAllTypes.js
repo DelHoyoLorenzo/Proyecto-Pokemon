@@ -1,8 +1,7 @@
 const axios = require("axios");
-const { Type } = require('../../db')
+const { Pokemon, Type } = require("../db");
 
-async function getTypes(req, res) {
-  try {
+async function getAllTypes(){
     let { data } = await axios("https://pokeapi.co/api/v2/type");
 
     let types = data.results.map((obj)=>{
@@ -16,11 +15,7 @@ async function getTypes(req, res) {
     // Obtener los tipos de la base de datos
     let response = await Type.findAll();
     //arreglo con todos los tipos
-    res.status(200).json(response);
-
-  } catch (error) {
-    res.status(400).send(error.message);
-  }
+    return response;
 }
 
-module.exports = getTypes;
+module.exports = getAllTypes;
