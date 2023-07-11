@@ -19,10 +19,11 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
-
+const createTypes = require('../api/src/Controllers/createTypes.js')
 // Syncing all the models at once.
-conn.sync({ force: false }).then(() => {
+conn.sync({ force: true }).then(() => {
   server.listen(3001, () => {
+    createTypes()
     console.log('Server listening at Port 3001'); // eslint-disable-line no-console
   });
 });

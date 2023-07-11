@@ -12,7 +12,7 @@ async function getAllPokemons(){
         },
       });
   
-      let response = await axios("https://pokeapi.co/api/v2/pokemon?limit=2000");
+      let response = await axios("https://pokeapi.co/api/v2/pokemon?limit=60");
       let data = response.data.results;
       //data es un arreglo de objetos donde cada objeto tiene una prop name y url
   
@@ -25,10 +25,12 @@ async function getAllPokemons(){
             return stat.base_stat;
           });
         types = types.map((type) =>{return {name: type.type.name}});
-  
+        
+        id= String(id)
+        
         return {
-          name: elemento.name,
           id,
+          name: elemento.name,
           heigth,
           weight,
           hp,

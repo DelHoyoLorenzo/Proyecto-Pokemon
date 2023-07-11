@@ -11,7 +11,7 @@ async function getPokemonById(id){
       let { name, heigth, weight, stats, sprites, types } = data;
       
       types = types.map((type) =>{return {name: type.type.name}});
-
+      console.log(types)
       const [hp, attack, defense, specialAttack, specialDefense, speed] =
         stats.map((stat) => {
           return stat.base_stat;
@@ -48,7 +48,7 @@ async function getPokemonById(id){
       });
 
       return {
-            id,
+            id: id,
           name: pokemon.name,
           height: pokemon.heigth,
           weight: pokemon.weight,

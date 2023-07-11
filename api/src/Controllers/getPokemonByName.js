@@ -2,7 +2,6 @@ const axios = require("axios");
 const { Pokemon, Type } = require("../db");
 
 async function getPokemonByName(name){
-    //data es un objeto con los atributos que necesito, es el pokemon digamos
     let pokemon = await Pokemon.findOne({
         where: { name: name },
         include: {
