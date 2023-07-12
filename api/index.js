@@ -23,7 +23,7 @@ const createTypes = require('../api/src/Controllers/createTypes.js')
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
   server.listen(3001, () => {
-    createTypes()
+    createTypes() //cada vez que se inicie el sv se crea la tabla types
     console.log('Server listening at Port 3001'); // eslint-disable-line no-console
   });
 });

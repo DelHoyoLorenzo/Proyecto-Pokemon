@@ -9,9 +9,9 @@ function Pokemon({pokemon}){
         navigate(`/detail/${id}`);
     }
     return(
-        <div >
+        <div className={style.pokemonConteiner}>
             <h1>{name}</h1>
-            <img src={image} onClick={navigateHandler}/>
+            <img className={style.imagen} src={image} onClick={navigateHandler}/>
             {types.map((type)=>{
                 return <h2>{type.name}</h2>
             })}

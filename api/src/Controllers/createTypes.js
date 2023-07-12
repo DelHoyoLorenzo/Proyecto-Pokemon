@@ -1,5 +1,5 @@
 const axios = require("axios");
-const { Pokemon, Type } = require("../db");
+const { Type } = require("../db");
 
 async function createTypes(){
     let { data } = await axios("https://pokeapi.co/api/v2/type");

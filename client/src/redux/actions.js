@@ -2,31 +2,35 @@ import axios from "axios";
 
 export const ALL_POKEMON = 'ALL_POKEMON'
 export const SEARCH_BY_NAME = 'SEARCH_BY_NAME'
+export const GET_TYPES = 'GET_TYPES'
 export const NEXT_FILL = 'NEXT_FILL'
 export const FIRST_FILL = 'FIRST_FILL'
 export const SEARCH_BY_ID = 'SEARCH_BY_ID'
-export const FILTER_BY_TYPE = 'FILTER_BY_TYPE'
 export const CLEAN_DETAIL = 'CLEAN_DETAIL'
 export const SET_LOADING = 'SET_LOADING'
 export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
+export const FILTER_BY_TYPE = 'FILTER_BY_TYPE'
 export const DOUBLE_FILTER = 'DOUBLE_FILTER'
+export const RESET_FILTER = 'RESET_FILTER'
+export const ORDER_BY_NAME = 'ORDER_BY_NAME'
+export const ORDER_BY_ORIGIN = 'ORDER_BY_ORIGIN'
+export const CREATE_POKEMON = 'CREATE_POKEMON'
 
-/* export const firstFill = (step) => {
-  return{
-    type: FIRST_FILL,
-    payload: step,
-  }
+
+export const getTypes = () => {
+  return async (dispatch) => {
+    try {
+      let response = await axios('http://localhost:3001/types');
+      let data = response.data;
+      return dispatch({
+        type: GET_TYPES,
+        payload: data,
+      });
+    } catch (error) {
+      alert('Could not bring all types')
+    }
+  };
 }
-
-export const nextFill = (beginning, step) => {
-  return{
-    type: NEXT_FILL,
-    payload: {
-      begining: beginning,
-      step: step
-    },
-  }
-} */
 
 export const bringPokemons = () => {
   return async (dispatch) => {
@@ -42,7 +46,6 @@ export const bringPokemons = () => {
     }
   };
 };
-
 
 export const searchByName = (name) => {
   return async (dispatch) => {
@@ -76,7 +79,7 @@ export const searchById = (id) => {
     }
   };
 };
-
+//------------------------------------FILTER-----------------------------------------------
 export function filterByType(type) {
   return {
     type: FILTER_BY_TYPE,
@@ -91,6 +94,12 @@ export function doubleFilter(type){
   }
 }
 
+export function resetFilter(){
+  return{
+    type: RESET_FILTER,
+  }
+}
+//-----------------------------------------------------------------------------------
 export function cleanDetail(){
   return{
     type: CLEAN_DETAIL,
@@ -111,55 +120,34 @@ export function setCurrentPage(pageNumber) {
     payload: pageNumber
   }
 } 
+//--------------------------------------------ORDER-----------------------------------
 
+export function orderByName(order){
+  return{
+    type: ORDER_BY_NAME,
+    payload: order
+  }
+}
 
-// export const removeChar = (id) => {
-//   return {
-//     type: REMOVE_CHAR,
-//     payload: id,
-//   };
-// };
+export function orderByOrigin(origin){
+  return{
+    type: ORDER_BY_ORIGIN,
+    payload: origin
+  }
+}
+//-------------------------------------------------------------------------------------
 
-// export const addFav = (character) => {
-//   try {
-//     const endpoint = "http://localhost:3001/rickandmorty/fav";
-//     return async (dispatch) => {
-//       let response = await axios.post(endpoint, character);
-//       let data = response.data;
-//       return dispatch({
-//         type: ADD_FAV,
-//         payload: data,
-//       });
-//     };
-//   } catch (error) {
-    
-//   }
-// };
-
-// export const removeFav = (id) => {
-//   try {
-//     const endpoint = `http://localhost:3001/rickandmorty/fav/${id}`;
-//     return async (dispatch) => {
-//       let response = await axios.delete(endpoint);
-//       let data = response.data;
-//       return dispatch({
-//         type: REMOVE_FAV,
-//         payload: data,
-//       });
-//     };
-//   } catch (error) {}
-// };
-
-// export function filterCards(gender) {
-//   return {
-//     type: "FILTER",
-//     payload: gender,
-//   };
-// }
-
-// export function orderCards(order) {
-//   return {
-//     type: "ORDER",
-//     payload: order,
-//   };
-//}
+export function createPokemon(pokemon){
+  return async (dispatch) => {
+    try {
+      let response = await axios.post('http://localhost:3001/pokemons', pokemon);
+      let data = response.data;
+      return dispatch({
+        type: CREATE_POKEMON,
+        payload: data,
+      });
+    } catch (error) {
+      alert('Incorrect id')
+    }
+  }
+}

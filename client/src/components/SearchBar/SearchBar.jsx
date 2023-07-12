@@ -1,8 +1,8 @@
-import { searchByName, bringPokemons, filterByType } from "../../redux/actions";
+import { searchByName, bringPokemons, filterByType, resetFilter } from "../../redux/actions";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import style from "./SearchBar.module.css";
-
+import { Link } from "react-router-dom";
 function SearchBar() {
   let dispatch = useDispatch();
 
@@ -16,14 +16,14 @@ function SearchBar() {
     dispatch(searchByName(name));
   };
 
-  let resetPokemons = function () {
+  /* let resetPokemons = function () {
     dispatch(bringPokemons());//no deberia llamar devuelta al sv
-    dispatch(filterByType('Types'))
-  };
+    dispatch(resetFilter())
+  }; */
 
   return (
     <div className={style.searchBarConteiner}>
-      <button onClick={resetPokemons}>Reset</button>
+      {/* <button onClick={resetPokemons}>Reset</button> */}
       <input
         value={searchName}
         onChange={handleChange}
@@ -34,6 +34,9 @@ function SearchBar() {
           Search
         </button>
       )}
+      <Link to='/create'>
+        <button>Create your Pokemon</button>
+      </Link>
     </div>
   );
 }

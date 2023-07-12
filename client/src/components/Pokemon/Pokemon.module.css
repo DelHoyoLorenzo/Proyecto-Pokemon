@@ -1,0 +1,42 @@
+.pokemonConteiner {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: space-between;
+  background-color: yellow;
+  border: 2px black solid;
+  border-radius: 10px;
+  box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.5);
+  transition: 0.5s;
+  height: auto;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  &:hover {
+    background-color: transparent;
+    scale: 0.96;
+    .tituloCarta {
+      color: white;
+      font-size: 40px;
+      font-family: "Get Schwifty";
+      margin: 1%;
+    }
+  }
+  animation: rotatescaledown 0.4s linear both;
+}
+@keyframes rotatescaledown {
+  0% {
+    transform: scale(1) rotateZ(0);
+  }
+  50% {
+    transform: scale(0.5) rotateZ(180deg);
+  }
+  100% {
+    transform: scale(1) rotateZ(360deg);
+  }
+}
+
+.imagen{
+    background-color: black;
+    border-radius: 250px;
+}
