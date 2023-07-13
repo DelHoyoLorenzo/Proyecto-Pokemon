@@ -1,7 +1,42 @@
-.formConteiner{
+.firstContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    
+}
+
+.formContainer{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 100px;
+    background: grey;
+    padding: 20px;
+    border-radius: 20px;
+    width: 500px;
+}
+
+.typeContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.checkBoxsContainer{
+    display: flex;
+    margin: 10px;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+}
+
+.eachType{
+    margin:10px;
+}
+
+.error{
+    color: red;
 }

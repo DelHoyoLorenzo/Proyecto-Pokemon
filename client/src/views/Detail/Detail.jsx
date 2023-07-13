@@ -29,7 +29,7 @@ function Detail() {
   if(loading) return null;
   return (
     <div className={style.detailConteiner}>
-      <button onClick={navigateHome}>Home</button>
+      <button onClick={navigateHome}>Back</button>
       <h1>{name}</h1>
       <img src={image} />
       <h2>id: {id}</h2>

@@ -1,21 +1,5 @@
 import axios from "axios";
-
-export const ALL_POKEMON = 'ALL_POKEMON'
-export const SEARCH_BY_NAME = 'SEARCH_BY_NAME'
-export const GET_TYPES = 'GET_TYPES'
-export const NEXT_FILL = 'NEXT_FILL'
-export const FIRST_FILL = 'FIRST_FILL'
-export const SEARCH_BY_ID = 'SEARCH_BY_ID'
-export const CLEAN_DETAIL = 'CLEAN_DETAIL'
-export const SET_LOADING = 'SET_LOADING'
-export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
-export const FILTER_BY_TYPE = 'FILTER_BY_TYPE'
-export const DOUBLE_FILTER = 'DOUBLE_FILTER'
-export const RESET_FILTER = 'RESET_FILTER'
-export const ORDER_BY_NAME = 'ORDER_BY_NAME'
-export const ORDER_BY_ORIGIN = 'ORDER_BY_ORIGIN'
-export const CREATE_POKEMON = 'CREATE_POKEMON'
-
+import {ALL_POKEMON, RE_FILL_POKEMONS, SEARCH_BY_NAME, GET_TYPES, NEXT_FILL, FIRST_FILL, SEARCH_BY_ID, CLEAN_DETAIL, SET_LOADING, SET_CURRENT_PAGE, FILTER_BY_TYPE, DOUBLE_FILTER, RESET_FILTER, ORDER_BY_NAME, ORDER_BY_ORIGIN, CREATE_POKEMON} from './types'
 
 export const getTypes = () => {
   return async (dispatch) => {
@@ -47,6 +31,11 @@ export const bringPokemons = () => {
   };
 };
 
+export const reFillPokemons = () => {
+  return{
+    type: RE_FILL_POKEMONS
+  }
+}
 export const searchByName = (name) => {
   return async (dispatch) => {
     try {
@@ -147,7 +136,7 @@ export function createPokemon(pokemon){
         payload: data,
       });
     } catch (error) {
-      alert('Incorrect id')
+      
     }
   }
 }

@@ -12,8 +12,8 @@ function Pokemon({pokemon}){
         <div className={style.pokemonConteiner}>
             <h1>{name}</h1>
             <img className={style.imagen} src={image} onClick={navigateHandler}/>
-            {types.map((type)=>{
-                return <h2>{type.name}</h2>
+            {types.map((type, index)=>{
+                return <h2 key={index}>{type.name}</h2>
             })}
         </div>
     )

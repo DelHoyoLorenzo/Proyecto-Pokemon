@@ -6,24 +6,18 @@ import { Link } from "react-router-dom";
 function SearchBar() {
   let dispatch = useDispatch();
 
-  let [searchName, setSearchName] = useState("");
+  let [searchName, setSearchName] = useState("")
 
   let handleChange = function (event) {
     setSearchName(event.target.value);
-  };
+  }
 
   let handleSearchBar = function (name) {
     dispatch(searchByName(name));
-  };
-
-  /* let resetPokemons = function () {
-    dispatch(bringPokemons());//no deberia llamar devuelta al sv
-    dispatch(resetFilter())
-  }; */
+  }
 
   return (
-    <div className={style.searchBarConteiner}>
-      {/* <button onClick={resetPokemons}>Reset</button> */}
+    <div className={style.searchBarContainer}>
       <input
         value={searchName}
         onChange={handleChange}

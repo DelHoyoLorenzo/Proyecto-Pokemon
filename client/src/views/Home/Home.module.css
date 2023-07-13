@@ -1,4 +1,4 @@
-.pokemonsConteiner{
+.pokemonsContainer{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 20px;
@@ -8,15 +8,16 @@
     /* overflow: hidden; */
 }
 
-.paginatedConteiner{
+.paginatedContainer{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
 }
 
-.homeConteiner{
+.homeContainer{
     background-image: url('../../assets/HD\ wallpaper_\ Pokémon\,\ Latias\,\ Latios\,\ pixels\,\ video\ games\,\ sky\,\ nature.jpg');
     background-size: 100% 100%;
     background-position: center;
+    min-height: 100vh;
 }

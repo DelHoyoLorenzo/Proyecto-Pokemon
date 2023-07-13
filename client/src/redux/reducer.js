@@ -1,41 +1,29 @@
-import {
-  ALL_POKEMON,
-  GET_TYPES,
-  SEARCH_BY_NAME,
-  SEARCH_BY_ID,
-  FILTER_BY_TYPE,
-  CLEAN_DETAIL,
-  SET_LOADING,
-  SET_CURRENT_PAGE,
-  DOUBLE_FILTER,
-  RESET_FILTER,
-  ORDER_BY_NAME,
-  ORDER_BY_ORIGIN,
-  CREATE_POKEMON,
-} from "./actions";
-
 const initialState = {
   allPokemons: [],
   copyAllPokemons: [],
   pokemonFoundById: {},
-  pokemonFoundByName: {},
   loading: false,
   currentPage: 1,
   filteredPokemons: [],
   allTypes: [],
-  //por tipo de pokemon
 };
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ALL_POKEMON:
+    case 'ALL_POKEMON':
       return {
         ...state,
         allPokemons: action.payload,
         copyAllPokemons: action.payload,
       };
+    
+    case 'RE_FILL_POKEMONS':
+      return{
+        ...state,
+        allPokemons: state.copyAllPokemons
+      }
 
-    case SEARCH_BY_NAME:
+    case 'SEARCH_BY_NAME':
       return {
         ...state,
         allPokemons: [
@@ -43,21 +31,19 @@ const rootReducer = (state = initialState, action) => {
             (pokemon) => action.payload.name === pokemon.name
           ),
         ],
-        /* pokemonFoundByName:action.payload */
       };
-    case SEARCH_BY_ID:
+    case 'SEARCH_BY_ID':
       return {
         ...state,
         pokemonFoundById: action.payload,
       };
-    case CLEAN_DETAIL:
+    case 'CLEAN_DETAIL':
       return {
         ...state,
         pokemonFoundById: {},
       };
     //FILTERS------------------------------------------------------------------------------------------------------
-    case FILTER_BY_TYPE:
-      if (action.payload !== "alltypes" && action.payload !== "types") {
+    case 'FILTER_BY_TYPE':
         return {
           ...state,
           allPokemons: state.copyAllPokemons.filter((pokemon) => {
@@ -69,14 +55,8 @@ const rootReducer = (state = initialState, action) => {
               return pokemon;
           }),
         };
-      } else {
-        return {
-          ...state,
-          allPokemons: state.copyAllPokemons,
-        };
-      }
 
-    case DOUBLE_FILTER:
+    case 'DOUBLE_FILTER':
       return {
         ...state,
         allPokemons: state.filteredPokemons.filter((pokemon) => {
@@ -85,31 +65,31 @@ const rootReducer = (state = initialState, action) => {
         }),
       };
 
-    case RESET_FILTER:
+    case 'RESET_FILTER':
       return {
         ...state,
         filteredPokemons: [],
         allPokemons: state.copyAllPokemons,
       };
     //-------------------------------------------------------------------------------------------------------
-    case SET_LOADING:
+    case 'SET_LOADING':
       return {
         ...state,
         loading: action.payload,
       };
 
-    case SET_CURRENT_PAGE:
+    case 'SET_CURRENT_PAGE':
       return {
         ...state,
         currentPage: action.payload,
       };
-    case GET_TYPES:
+    case 'GET_TYPES':
       return {
         ...state,
         allTypes: action.payload,
       };
     //-----------------------------------------ORDER---------------------------------------------------------------
-    case ORDER_BY_NAME:
+    case 'ORDER_BY_NAME':
       if (action.payload === "ascending") {
         return {
           ...state,
@@ -140,7 +120,7 @@ const rootReducer = (state = initialState, action) => {
         };
       }
     
-    case ORDER_BY_ORIGIN:
+    case 'ORDER_BY_ORIGIN':
       if(action.payload === 'api'){
         return{
           ...state,
@@ -157,7 +137,7 @@ const rootReducer = (state = initialState, action) => {
     }
     //--------------------------------------------------------------------------------------------------------------
 
-    case CREATE_POKEMON:
+    case 'CREATE_POKEMON':
       return{
         ...state,
         allPokemons: [action.payload, ...state.allPokemons]
