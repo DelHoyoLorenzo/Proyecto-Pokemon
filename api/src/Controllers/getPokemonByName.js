@@ -20,7 +20,7 @@ async function getPokemonByName(name){
       if(!data)  throw new Error('The pokemon that you are looking was not found')
   
       if(data){
-        let { id, heigth, weight, stats, sprites, types } = data;
+        let { id, height, weight, stats, sprites, types } = data;
       //extraigo la informacion del pokemon que necesito
   
       const [hp, attack, defense, specialAttack, specialDefense, speed] =
@@ -33,7 +33,7 @@ async function getPokemonByName(name){
       return{
         id,
         name,
-        heigth,
+        height,
         weight,
         hp,
         attack,

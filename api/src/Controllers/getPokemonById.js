@@ -8,10 +8,10 @@ async function getPokemonById(id){
     
       if(!data) throw new Error('Invalid Id')
 
-      let { name, heigth, weight, stats, sprites, types } = data;
+      let { name, height, weight, stats, sprites, types } = data;
       
       types = types.map((type) =>{return {name: type.type.name}});
-      console.log(types)
+      
       const [hp, attack, defense, specialAttack, specialDefense, speed] =
         stats.map((stat) => {
           return stat.base_stat;
@@ -20,7 +20,7 @@ async function getPokemonById(id){
       return {
           id,
           name,
-          heigth,
+          height,
           weight,
           hp,
           attack,
@@ -50,7 +50,7 @@ async function getPokemonById(id){
       return {
             id: id,
           name: pokemon.name,
-          height: pokemon.heigth,
+          height: pokemon.height,
           weight: pokemon.weight,
           hp: pokemon.hp,
           attack: pokemon.attack,
