@@ -1,5 +1,6 @@
 import axios from "axios";
-import {ALL_POKEMON, RE_FILL_POKEMONS, SEARCH_BY_NAME, GET_TYPES, NEXT_FILL, FIRST_FILL, SEARCH_BY_ID, CLEAN_DETAIL, SET_LOADING, SET_CURRENT_PAGE, FILTER_BY_TYPE, DOUBLE_FILTER, RESET_FILTER, ORDER_BY_NAME, ORDER_BY_ORIGIN, CREATE_POKEMON} from './types'
+
+import {ALL_POKEMON, RE_FILL_POKEMONS, SEARCH_BY_NAME, GET_TYPES, SEARCH_BY_ID, CLEAN_DETAIL, SET_LOADING, SET_CURRENT_PAGE, FILTER_BY_TYPE, DOUBLE_FILTER, RESET_FILTER, ORDER_BY_NAME, FILTER_BY_ORIGIN, CREATE_POKEMON, SET_POKEMON, SET_TYPE_POKEMON_CREATED, CHOOSE_FILTERS, CHOOSE_ORDER } from './types'
 
 export const getTypes = () => {
   return async (dispatch) => {
@@ -19,6 +20,7 @@ export const getTypes = () => {
 export const bringPokemons = () => {
   return async (dispatch) => {
     try {
+      dispatch(setLoading(true))
       let response = await axios('http://localhost:3001/pokemons');
       let data = response.data;
       return dispatch({
@@ -27,6 +29,8 @@ export const bringPokemons = () => {
       });
     } catch (error) {
       alert('Could not bring all pokemons')
+    } finally{
+      dispatch(setLoading(false))
     }
   };
 };
@@ -118,25 +122,65 @@ export function orderByName(order){
   }
 }
 
-export function orderByOrigin(origin){
+export function filterByOrigin(origin){
   return{
-    type: ORDER_BY_ORIGIN,
+    type: FILTER_BY_ORIGIN,
     payload: origin
   }
 }
 //-------------------------------------------------------------------------------------
 
-export function createPokemon(pokemon){
+export function createPokemon(pokemon) {
   return async (dispatch) => {
     try {
       let response = await axios.post('http://localhost:3001/pokemons', pokemon);
       let data = response.data;
-      return dispatch({
+      await dispatch({
         type: CREATE_POKEMON,
-        payload: data,
+        payload: data
       });
-    } catch (error) {
       
+      await dispatch(chooseFilters({
+        origin:'Select Origin',
+        typeOne:'Select filter One',
+        typeTwo:'Select filter two',
+      }))
+      await dispatch(chooseOrder('Select Order'))
+      /* await dispatch(reFillPokemons())
+      await dispatch(resetFilter()) */
+     return dispatch(setCurrentPage(1))
+    } catch (error) {
+      console.log(error.response.data);
+      alert(error.response.data);
     }
+  };
+}
+
+
+export function setPokemonGlobal(change){
+  return{
+    type: SET_POKEMON,
+    payload: change
+  }
+}
+
+export function setTypesGlobal(change){
+  return{
+    type: SET_TYPE_POKEMON_CREATED,
+    payload: change
+  }
+}
+
+export function chooseFilters(selection){
+  return{
+    type: CHOOSE_FILTERS,
+    payload: selection
+  }
+}
+
+export function chooseOrder(selection){
+  return{
+    type: CHOOSE_ORDER,
+    payload: selection
   }
 }

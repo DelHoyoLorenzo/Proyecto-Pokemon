@@ -1,23 +1,53 @@
-.pokemonsContainer{
+/* Modificaciones para el .pokemonsContainer */
+.pokemonsContainer {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 20px;
+    justify-items: center;
+    grid-template-columns: repeat(2, 1fr);
     margin: 1%;
-    margin-top: 0%;
-    margin-bottom: 0%;
+    margin-top: 0;
+    margin-bottom: 0;
     /* overflow: hidden; */
-}
-
-.paginatedContainer{
+  }
+  
+  /* Modificaciones para el .paginatedContainer */
+  .paginatedContainer {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
-}
-
-.homeContainer{
-    background-image: url('../../assets/HD\ wallpaper_\ Pokémon\,\ Latias\,\ Latios\,\ pixels\,\ video\ games\,\ sky\,\ nature.jpg');
-    background-size: 100% 100%;
+  }
+  
+  /* Modificaciones para el .homeContainer */
+  .homeContainer {
+    background-image: url('../../assets/HD wallpaper_ Pokémon, Latias, Latios, pixels, video games, sky, nature.jpg');
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el contenedor */
     background-position: center;
     min-height: 100vh;
-}
+  }
+  
+  /* Modificaciones para el .selector y .boton */
+  .selector,
+  .boton {
+    margin: 10px; /* Reducir el margen para dar más espacio a los elementos */
+    padding: 10px;
+  }
+
+  .filtersContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .buttonContainer{display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .noPokemon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    flex-direction: column;
+  }

@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import style from "./SearchBar.module.css";
 import { Link } from "react-router-dom";
+import snorlax from '../../assets/snorlax.gif'
+
 function SearchBar() {
   let dispatch = useDispatch();
 
@@ -18,6 +20,7 @@ function SearchBar() {
 
   return (
     <div className={style.searchBarContainer}>
+      <img className={style.gif} src={snorlax}/>
       <input
         value={searchName}
         onChange={handleChange}

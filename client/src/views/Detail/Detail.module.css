@@ -1,5 +1,40 @@
-.detailConteiner{
+.background{
+    background-image: url('../../assets/detailfondo.png');
+    background-size: cover; 
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+    display: flex; 
+}
+
+.firstContainer{
+    width: 50%;
+    height: 100%;
+    left: 0;
+}
+
+.secondContainer{
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 70px;
+}
+
+.imagen{
+    height: 407px;
+    margin-left: 20%;
+}
+.typesContainer{
     display: flex;
-    flex-direction: column;
+    text-align: center;
     align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+.nameContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }

@@ -8,7 +8,8 @@ async function postPokemon(req,res){
         if(response) return res.status(200).json(response/* , 'Pokemon successfully created' */)
 
     } catch (error) {
-        res.status(400).json(error.message);
+        console.log(error)
+        res.status(400).json(error.message); 
     }
 }
 

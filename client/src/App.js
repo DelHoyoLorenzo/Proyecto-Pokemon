@@ -9,7 +9,7 @@ import { bringPokemons, getTypes } from './redux/actions';
 
 function App() {
   let dispatch = useDispatch();
-  
+
   useEffect(() => {
     dispatch(bringPokemons());
     dispatch(getTypes());

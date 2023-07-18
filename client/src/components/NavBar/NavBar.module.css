@@ -1,3 +1,14 @@
 .navConteiner{
-    background: black;
+    background: #9681EB;
+    border-bottom: 2px solid black;
+}
+
+.gif{
+    border-radius: 200px;
+    border: 2px solid black;
+    position: relative;
+    top: 85px;
+    left: 280px;
+    width: 100px;
+    height: 100px;
 }

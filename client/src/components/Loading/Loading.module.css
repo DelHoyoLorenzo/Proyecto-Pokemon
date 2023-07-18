@@ -1,0 +1,8 @@
+.gif {
+    background-image: url('../../assets/2iiJ.gif');
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; /* Usamos height en lugar de min-height para fijar el alto del contenedor */
+    width: 100%;
+  }
+  

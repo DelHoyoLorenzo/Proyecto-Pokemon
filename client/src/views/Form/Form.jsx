@@ -1,124 +1,123 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createPokemon } from "../../redux/actions";
+import { reFillPokemons, bringPokemons, chooseFilters, chooseOrder} from "../../redux/actions";
 import {validatePokemon, validateTypes} from "../../utils/validation";
+import useForm from "../../Hooks/useForm"; 
 import style from "./Form.module.css";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Form() {
-  const dispatch = useDispatch();
+  let navigate = useNavigate()
   const allTypes = useSelector((state) => state.allTypes);
-  const [types, setTypes] = useState([])
-  const [pokemon, setPokemon] = useState({
-    types: types,
-  });
-  const [errorsPokemon, setErrorsPokemon] = useState({});
+  const allPokemons = useSelector((state) => state.allPokemons)
+  const dispatch = useDispatch()
 
-  const [errorsTypes, setErrorsTypes] = useState({});
 
-  let handleTypeInput = function (event) {
-    if(types.includes(event.target.name)){
-       let newTypes = types.filter((type)=> type !== event.target.name)
-       setTypes(newTypes)
-       setErrorsTypes(validateTypes(newTypes))
-    }else{
-       setTypes([...types, event.target.name]);
-       setErrorsTypes(validateTypes([...types, event.target.name]))
-    }
-  };
+  const {
+    handleSubmit,
+    handleInput,
+    handleTypeInput,
+    isTypeSelected,
+    errorsPokemon,
+    errorsTypes,
+    pokemonCreated,
+    typesPokemonCreated,
+    created
+  } = useForm()
 
-  let handleInput = function (event) {
-    setPokemon({
-      ...pokemon,
-      [event.target.name]: event.target.value,
-    });
+  let backHandler = function(){
+    navigate('/home')
+  }
 
-    setErrorsPokemon(validatePokemon({
-        ...pokemon,
-        [event.target.name]: event.target.value,
-    }))
-  };
-  
-  /* console.log(Object.keys(errorsPokemon)) */
-  console.log(Object.values(errorsTypes))
-  console.log(types)
-  let handleSubmit = function (event) {
-      event.preventDefault();
-      setPokemon({
-        ...pokemon,
-        types: types
-      })
-      if(!(Object.keys(errorsPokemon).length && Object.keys(errorsTypes).length)){ dispatch(createPokemon(pokemon))};
-      //tendria que despachar una action la cual postee el pokemon a mi endpoint
-    };
+  let finishHandler = function(){
+    /* navigate('/home') */
+    console.log(created)
+    // if(created){
+    //   dispatch(chooseFilters({
+    //     origin:'Select Origin',
+    //     typeOne:'Select filter One',
+    //     typeTwo:'Select filter two',
+    //   }))
+    //   dispatch(chooseOrder('Select Order'))
+    //   /* dispatch(bringPokemons()) */
+    //   dispatch(reFillPokemons())
+    //   dispatch(resetFilter())
+    //   dispatch(setCurrentPage(1))
+    //   let created = false;
+    // }
+  }
+/* console.log(pokemonCreated)
+console.log(typesPokemonCreated) */
 
-  return (
-    <div className={style.firstContainer}>
-    <Link to='/home'>
-        <button>Back</button>
-    </Link>
-    <form onSubmit={handleSubmit} className={style.formContainer}>
-      <div>
-        <label>Name</label>
-        <input name="name" onChange={handleInput} />
-        <p className={style.error}>{errorsPokemon.name}</p>
-      </div>
-      <div>
-        <label>Image</label>
-        <input type='text' name="image" onChange={handleInput} />
-        <p className={style.error}>{errorsPokemon.image}</p>
-      </div>
-      <div>
-        <label>hp</label>
-        <input type="text" name="hp" onChange={handleInput} />
-        <p className={style.error}>{errorsPokemon.hp}</p>
-      </div>
-      <div>
-        <label>Attack</label>
-        <input type="text" name="attack" onChange={handleInput} />
-        <p className={style.error}>{errorsPokemon.attack}</p>
-      </div>
-      <div>
-        <label>Defense</label>
-        <input type="text" name="defense" onChange={handleInput} />
-        <p className={style.error}>{errorsPokemon.defense}</p>
-      </div>
-      <div>
-        <label>Speed</label>
-        <input type="text" name="speed" onChange={handleInput} />
-        <p className={style.error}>{errorsPokemon.speed}</p>
-      </div>
-      <div>
-        <label>Height</label>
-        <input type="text" name="height" onChange={handleInput} />
-        <p className={style.error}>{errorsPokemon.height}</p>
-      </div>
-      <div>
-        <label>Weight</label>
-        <input type="text" name="weight" onChange={handleInput} />
-        <p className={style.error}>{errorsPokemon.weight}</p>
-      </div>
-      <div className={style.typeContainer}>
-        <label>Types</label>
-        <div className={style.checkBoxsContainer}>
-          {allTypes.map((type) => (
-            <div className={style.eachType} key={type.name}>
-              <input
-                type="checkbox"
-                name={type.name}
-                onChange={handleTypeInput}
-                /* checked={pokemon.types.includes(type.name)} */
-              />
-              <label>{type.name}</label>
-            </div>
-          ))}
-        </div>
-          <p className={style.error}>{errorsTypes.types}</p>
-      </div>
-      <button onClick={handleSubmit}>Create your Pokemon</button>
-    </form>
+return (
+  <div className={style.firstContainer}>
+  <button onClick={backHandler}>Back</button>
+  <form className={style.formContainer}>
+    <div>
+      <label>*Name</label>
+      <input value={pokemonCreated.name} name="name" onChange={handleInput} />
+      <p className={style.error}>{errorsPokemon?.name}</p>
     </div>
-  );
+    <div>
+      <label>*Image URL</label>
+      <input value={pokemonCreated.image} type='text' name="image" onChange={handleInput} />
+      <p className={style.error}>{errorsPokemon?.image}</p>
+    </div>
+    <div>
+      <label>*HP</label>
+      <input value={pokemonCreated.hp} type="text" name="hp" onChange={handleInput} />
+      <p className={style.error}>{errorsPokemon?.hp}</p>
+    </div>
+    <div>
+      <label>*Attack</label>
+      <input value={pokemonCreated.attack} type="text" name="attack" onChange={handleInput} />
+      <p className={style.error}>{errorsPokemon?.attack}</p>
+    </div>
+    <div>
+      <label>*Defense</label>
+      <input value={pokemonCreated.defense} type="text" name="defense" onChange={handleInput} />
+      <p className={style.error}>{errorsPokemon?.defense}</p>
+    </div>
+    <div>
+      <label>Speed</label>
+      <input value={pokemonCreated.speed} type="text" name="speed" onChange={handleInput} />
+      <p className={style.error}>{errorsPokemon?.speed}</p>
+    </div>
+    <div>
+      <label>Height</label>
+      <input value={pokemonCreated.height} type="text" name="height" onChange={handleInput} />
+      <p className={style.error}>{errorsPokemon?.height}</p>
+    </div>
+    <div>
+      <label>Weight</label>
+      <input value={pokemonCreated.weight} type="text" name="weight" onChange={handleInput} />
+      <p className={style.error}>{errorsPokemon?.weight}</p>
+    </div>
+    <div className={style.typeContainer}>
+      <label>Types</label>
+      <div className={style.checkBoxsContainer}>
+        {allTypes.map((type) => (
+          <div className={style.eachType} key={type.name}>
+            <input
+              type="checkbox"
+              name={type.name}
+              onChange={handleTypeInput}
+              value={type.name}
+        // Verifica si el tipo está seleccionado en el estado typesPokemonCreated
+              checked={isTypeSelected(type.name)}
+            />
+            <label>{type.name}</label>
+          </div>
+        ))}
+      </div>
+        <p className={style.error}>{errorsTypes &&errorsTypes.types}</p>
+    </div>
+    {(pokemonCreated.name && pokemonCreated.hp && pokemonCreated.attack && pokemonCreated.defense && typesPokemonCreated.length>0 && typesPokemonCreated.length<3 && !Object.keys(errorsPokemon).length && !Object.keys(errorsTypes).length) && (<button onClick={()=>{handleSubmit(), finishHandler()}}>Create your Pokemon</button>)}
+    
+  </form>
+  </div>
+);
 }
 
 export default Form;
