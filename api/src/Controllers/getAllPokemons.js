@@ -12,7 +12,7 @@ async function getAllPokemons(){
         },
       });
   
-      let response = await axios("https://pokeapi.co/api/v2/pokemon?limit=60");
+      let response = await axios("https://pokeapi.co/api/v2/pokemon?limit=1200");
       let data = response.data.results;
       //data es un arreglo de objetos donde cada objeto tiene una prop name y url
   
