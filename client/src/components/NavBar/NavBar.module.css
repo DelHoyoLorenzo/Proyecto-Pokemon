@@ -1,7 +1,39 @@
-.navConteiner{
-    background: #9681EB;
-    border-bottom: 2px solid black;
-}
+.navConteiner {
+    background: #9681EB; /* Color predeterminado para tipos desconocidos */
+    border: 2px solid black;
+    border-radius: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s;
+    animation: rotateColors 12s linear infinite; /* Aumentamos la duración para más colores */
+  }
+  
+  @keyframes rotateColors {
+    0% {
+      background: #9681EB; /* Color predeterminado para tipos desconocidos */
+    }
+    20% {
+      background: yellow; /* Color amarillo para tipo eléctrico */
+    }
+    40% {
+      background: red; /* Color rojo para tipo fuego */
+    }
+    60% {
+      background: blue; /* Color azul para tipo agua */
+    }
+    80% {
+      background: green; /* Color verde para tipo pasto */
+    }
+    100% {
+      background: grey; /* Color gris para tipo acero */
+    }
+  }
+  
+  /* Efecto de sombra al hacer hover */
+  .navConteiner:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  }
 
 .gif{
     border-radius: 200px;

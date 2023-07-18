@@ -1,10 +1,52 @@
+@import url('https://fonts.cdnfonts.com/css/pokemon-solid');
+
 .landingBackground{
   display: flex;
-  background-image: url('../../assets/descarga.png');
+  background-image: url('../../assets/Tumblr.gif');
   background-size: cover;
   background-position: center;
   position: relative;
   height: 100vh;
   justify-content: center;
   align-items: center;
+}
+
+.button {
+  font-family: 'Pokemon Solid', sans-serif;
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: white;
+  text-transform: uppercase;
+  background-image: linear-gradient(to bottom, red 50%, white 50%);
+  background-size: 100% 200%;
+  transition: background-position 0.5s ease;
+  border: none;
+  border-radius: 40px;
+  padding: 30px;
+}
+
+.button:hover {
+  background-position: 0 100%;
+  animation: shake 0.5s infinite;
+  cursor: pointer;
+  color: black
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px) rotate(-2deg);
+  }
+  50% {
+    transform: translateX(5px) rotate(2deg);
+  }
+  75% {
+    transform: translateX(-5px) rotate(-2deg);
+  }
+  100% {
+    transform: translateX(5px) rotate(2deg);
+  }
 }

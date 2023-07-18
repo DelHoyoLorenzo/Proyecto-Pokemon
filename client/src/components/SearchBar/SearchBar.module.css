@@ -1,13 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 .searchBarContainer {
+  font-family: 'Roboto', sans-serif;
   display: flex;
-    align-items: center;
-    flex-direction: row;
-    margin-bottom: 20px;
-    justify-content: center;
-    height: 100px;
+  align-items: center;
+  flex-direction: row;
+  margin-bottom: 20px;
+  justify-content: center;
+  height: 100px;
 }
 
-.gif{
+.gif {
   border-radius: 200px;
   border: 2px solid black;
   position: relative;
@@ -15,4 +18,33 @@
   height: 100px;
   right: 20px;
   top: 10px;
+}
+
+.button {
+  font-family: 'Roboto', sans-serif;
+  margin: 20px;
+  padding: 20px;
+  background-color: #FFD700;
+  font-weight: bolder; /* Amarillo más intenso */
+  &:hover{
+    cursor: pointer;
+    background-color: #FFC400; /* Color más claro al hacer hover */
+  }
+}
+
+.icon {
+  font-family: 'Roboto', sans-serif;
+  font-size: xx-large;
+  margin: 20px;
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+.iconContainer{
+  width: 50px;
+}
+
+.input{
+  font-size: larger;
 }

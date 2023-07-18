@@ -50,7 +50,7 @@ export const searchByName = (name) => {
         payload: data,
       });
     } catch (error) {
-      alert('Incorrect name')
+      alert('Please put a correct name')
     }
   };
 };
@@ -150,7 +150,6 @@ export function createPokemon(pokemon) {
       await dispatch(resetFilter()) */
      return dispatch(setCurrentPage(1))
     } catch (error) {
-      console.log(error.response.data);
       alert(error.response.data);
     }
   };

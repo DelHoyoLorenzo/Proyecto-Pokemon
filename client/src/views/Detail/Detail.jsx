@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { searchById, cleanDetail } from "../../redux/actions";
 import style from "./Detail.module.css";
 import Loading from "../../components/Loading/Loading";
-
+import {TiBackspace} from 'react-icons/ti'
 function Detail() {
   const { id } = useParams();
   let navigate = useNavigate();
@@ -42,7 +42,7 @@ function Detail() {
           </div>
         </div>
       <div>
-        <button onClick={navigateHome}>Back</button>
+        <TiBackspace className={style.icon} onClick={navigateHome}>Back</TiBackspace>
       </div>
         <div className={style.secondContainer}>
           <h2>id: {id}</h2>

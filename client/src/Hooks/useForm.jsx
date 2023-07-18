@@ -12,8 +12,6 @@
 
    const [types, setTypes] = useState(typesPokemonCreated);
    const [pokemon, setPokemon] = useState(pokemonCreated);
-   
-   let created = false;
 
    useEffect(() => {
     setPokemon(pokemonCreated);
@@ -59,11 +57,11 @@
    };
 
 let handleSubmit = function () {
-  /* alert('estoy en el handleSubmit'); */
 
   if (!(Object.keys(errorsPokemon).length && Object.keys(errorsTypes).length)) {
     let newPokemon = {
       ...pokemon,
+      name: pokemon.name.toLowerCase(),
       image: pokemon.image || image,
       types,
       speed: pokemon.speed || 0,
@@ -71,8 +69,8 @@ let handleSubmit = function () {
       weight: pokemon.weight || 0,
     };
 
-    // Comparar el nombre del nuevo Pokémon con los nombres existentes en minúsculas
-    const existingPokemonNames = allPokemons.map(p => p.name.toLowerCase());
+    // comparar el nombre del nuevo pokemon con los nombres existentes en minusculas
+    const existingPokemonNames = allPokemons.map((pokemon) => pokemon.name.toLowerCase());
     const newPokemonName = newPokemon.name.toLowerCase();
 
     if (!existingPokemonNames.includes(newPokemonName)) {
@@ -80,7 +78,6 @@ let handleSubmit = function () {
       dispatch(createPokemon(newPokemon));
       dispatch(setPokemonGlobal({}));
       dispatch(setTypesGlobal([]));
-      console.log('se creo')
       alert('Pokemon created!')
     } else {
       alert('Pokemon already exists');
@@ -91,7 +88,7 @@ let handleSubmit = function () {
 };
 
   const isTypeSelected = (type) => {
-    return typesPokemonCreated.includes(type); //retorna true si el nombre del type q le paso esta
+    return typesPokemonCreated.includes(type); //retorna true si el nombre del type q le paso está
   }
 
      return{
@@ -103,6 +100,5 @@ let handleSubmit = function () {
          errorsTypes,
          pokemonCreated,
          typesPokemonCreated,
-         created,
      }
  }

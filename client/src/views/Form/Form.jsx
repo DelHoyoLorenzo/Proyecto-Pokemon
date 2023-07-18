@@ -6,7 +6,7 @@ import useForm from "../../Hooks/useForm";
 import style from "./Form.module.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
+import {TiBackspace} from 'react-icons/ti'
 function Form() {
   let navigate = useNavigate()
   const allTypes = useSelector((state) => state.allTypes);
@@ -52,44 +52,44 @@ console.log(typesPokemonCreated) */
 
 return (
   <div className={style.firstContainer}>
-  <button onClick={backHandler}>Back</button>
+  <TiBackspace className={style.icon} onClick={backHandler}>Back</TiBackspace>
   <form className={style.formContainer}>
-    <div>
+    <div className={style.inputDiv}>
       <label>*Name</label>
       <input value={pokemonCreated.name} name="name" onChange={handleInput} />
       <p className={style.error}>{errorsPokemon?.name}</p>
     </div>
-    <div>
+    <div className={style.inputDiv}>
       <label>*Image URL</label>
       <input value={pokemonCreated.image} type='text' name="image" onChange={handleInput} />
       <p className={style.error}>{errorsPokemon?.image}</p>
     </div>
-    <div>
+    <div className={style.inputDiv}>
       <label>*HP</label>
       <input value={pokemonCreated.hp} type="text" name="hp" onChange={handleInput} />
       <p className={style.error}>{errorsPokemon?.hp}</p>
     </div>
-    <div>
+    <div className={style.inputDiv}>
       <label>*Attack</label>
       <input value={pokemonCreated.attack} type="text" name="attack" onChange={handleInput} />
       <p className={style.error}>{errorsPokemon?.attack}</p>
     </div>
-    <div>
+    <div className={style.inputDiv}>
       <label>*Defense</label>
       <input value={pokemonCreated.defense} type="text" name="defense" onChange={handleInput} />
       <p className={style.error}>{errorsPokemon?.defense}</p>
     </div>
-    <div>
+    <div className={style.inputDiv}>
       <label>Speed</label>
       <input value={pokemonCreated.speed} type="text" name="speed" onChange={handleInput} />
       <p className={style.error}>{errorsPokemon?.speed}</p>
     </div>
-    <div>
+    <div className={style.inputDiv}>
       <label>Height</label>
       <input value={pokemonCreated.height} type="text" name="height" onChange={handleInput} />
       <p className={style.error}>{errorsPokemon?.height}</p>
     </div>
-    <div>
+    <div className={style.inputDiv}>
       <label>Weight</label>
       <input value={pokemonCreated.weight} type="text" name="weight" onChange={handleInput} />
       <p className={style.error}>{errorsPokemon?.weight}</p>
@@ -113,7 +113,7 @@ return (
       </div>
         <p className={style.error}>{errorsTypes &&errorsTypes.types}</p>
     </div>
-    {(pokemonCreated.name && pokemonCreated.hp && pokemonCreated.attack && pokemonCreated.defense && typesPokemonCreated.length>0 && typesPokemonCreated.length<3 && !Object.keys(errorsPokemon).length && !Object.keys(errorsTypes).length) && (<button onClick={()=>{handleSubmit(), finishHandler()}}>Create your Pokemon</button>)}
+    {(pokemonCreated.name && pokemonCreated.hp && pokemonCreated.attack && pokemonCreated.defense && typesPokemonCreated.length>0 && typesPokemonCreated.length<3 && !Object.keys(errorsPokemon).length && !Object.keys(errorsTypes).length) && (<button className={style.button} onClick={handleSubmit}>Create your Pokemon</button>)}
     
   </form>
   </div>

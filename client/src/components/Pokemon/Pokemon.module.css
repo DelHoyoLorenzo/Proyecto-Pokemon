@@ -12,6 +12,8 @@
   height: auto;
   margin-bottom: 20px;
   margin-top: 30px;
+  max-width: 400px;
+  max-height: 650px;
   &:hover {
     background-color: transparent;
     scale: 0.96;
@@ -39,4 +41,5 @@
 .imagen{
     background-color: black;
     border-radius: 250px;
+    width: 300px;
 }

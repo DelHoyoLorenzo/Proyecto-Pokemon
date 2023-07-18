@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import style from "./SearchBar.module.css";
 import { Link } from "react-router-dom";
 import snorlax from '../../assets/snorlax.gif'
+import {FaSearch} from 'react-icons/fa'
 
 function SearchBar() {
   let dispatch = useDispatch();
@@ -22,17 +23,20 @@ function SearchBar() {
     <div className={style.searchBarContainer}>
       <img className={style.gif} src={snorlax}/>
       <input
+        className={style.input}
         value={searchName}
         onChange={handleChange}
         placeholder="Pokemon name?"
       />
-      {searchName && (
-        <button onClick={() => handleSearchBar(searchName.toLocaleLowerCase())}>
-          Search
-        </button>
-      )}
+      <div className={style.iconContainer}>
+        {searchName && (
+          <FaSearch className={style.icon} onClick={() => handleSearchBar(searchName.toLocaleLowerCase())}>
+            Search
+          </FaSearch>
+        )}
+      </div>
       <Link to='/create'>
-        <button>Create your Pokemon</button>
+        <button className={style.button}>Try your own Pokemon !</button>
       </Link>
     </div>
   );

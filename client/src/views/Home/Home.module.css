@@ -1,33 +1,28 @@
-/* Modificaciones para el .pokemonsContainer */
 .pokemonsContainer {
     display: grid;
     justify-items: center;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     margin: 1%;
     margin-top: 0;
     margin-bottom: 0;
-    /* overflow: hidden; */
   }
   
-  /* Modificaciones para el .paginatedContainer */
   .paginatedContainer {
     display: flex;
     justify-content: center;
     align-items: center;
   }
   
-  /* Modificaciones para el .homeContainer */
   .homeContainer {
     background-image: url('../../assets/HD wallpaper_ Pokémon, Latias, Latios, pixels, video games, sky, nature.jpg');
-    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el contenedor */
+    background-size: cover;
     background-position: center;
     min-height: 100vh;
   }
-  
-  /* Modificaciones para el .selector y .boton */
+
   .selector,
   .boton {
-    margin: 10px; /* Reducir el margen para dar más espacio a los elementos */
+    margin: 10px; 
     padding: 10px;
   }
 
@@ -38,7 +33,8 @@
     justify-content: center;
   }
 
-  .buttonContainer{display: flex;
+  .buttonContainer{
+    display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;

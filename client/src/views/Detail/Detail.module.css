@@ -38,3 +38,10 @@
     align-items: center;
     justify-content: center;
 }
+
+.icon{
+    font-size: xx-large;
+    &:hover{
+        cursor: pointer;
+    }
+}

@@ -1,22 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 .firstContainer{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
-    
+    background-image: url('../../assets/HD wallpaper_ Pokémon, Latias, Latios, pixels, video games, sky, nature.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
 }
 
 .formContainer{
+    font-family: 'Roboto', sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 10px;
     background: grey;
     padding: 20px;
     border-radius: 20px;
     width: 500px;
+    border: 2px solid black;
 }
 
 .typeContainer{
@@ -26,11 +32,10 @@
 }
 
 .checkBoxsContainer{
-    display: flex;
     margin: 10px;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: row;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(4, 1fr);
 }
 
 .eachType{
@@ -39,4 +44,30 @@
 
 .error{
     color: red;
+    height: 10px;
+}
+
+.icon{
+    font-size: 80px;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.inputDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.button{
+    padding: 20px;
+    border-radius: 20px;
+    background-color: yellow;
+    font-weight: bold;
+    &:hover{
+        background-color: greenyellow;
+        cursor: pointer;
+    }
 }

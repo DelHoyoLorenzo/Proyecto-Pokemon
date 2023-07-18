@@ -28,7 +28,6 @@ function Home() {
 
   const loading = useSelector((state)=> state.loading)
   const allTypes = useSelector((state) => state.allTypes)
-
   const filtersChosen = useSelector((state)=> state.filtersChosen)
   const orderChosen = useSelector((state)=> state.orderChosen)
 
@@ -109,6 +108,9 @@ function Home() {
   if(loading) return <Loading/>
   return (
     <div className={style.homeContainer}>
+      <div>
+        
+      </div>
       <NavBar />
 
       <div className={style.filtersContainer}>
