@@ -1,20 +1,12 @@
 import style from "./Home.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import {
-  setCurrentPage,
-  orderByName,
-  filterByOrigin,
-  resetFilter,
-  reFillPokemons,
-  chooseFilters,
-  chooseOrder,
-  bringPokemons
-} from "../../redux/actions";
+import { setCurrentPage,chooseFilters,chooseOrder,bringPokemons } from "../../redux/actions";
 import usePaginate from "../../Hooks/usePaginate";
 import Pokemon from "../../components/Pokemon/Pokemon";
 import NavBar from "../../components/NavBar/NavBar.jsx";
 import Loading from "../../components/Loading/Loading";
+import Paginated from "../../components/Paginated/Paginated";
 
 function Home() {
   const dispatch = useDispatch()
@@ -38,7 +30,7 @@ function Home() {
   })
   const [orderChosenLocal, setOrderChosenLocal] = useState('Select Order')
 
-  useEffect(()=>{
+  useEffect(()=>{ //mantenerlos sincronizados con los estados globales
     setFiltersChosenLocal(filtersChosen)
     setOrderChosenLocal(orderChosen)
     if(filtersChosen==={
@@ -114,7 +106,7 @@ function Home() {
       <NavBar />
 
       <div className={style.filtersContainer}>
-        {/* ------------------------------------------------------------------------------------------------------------------- */}      
+{/*----------------------------------------------------------------------------------------------------------------------------------------- */}      
       <div>
         <select value={filtersChosenLocal.origin === 'Select Origin' ? '' : filtersChosenLocal.origin} onChange={handleOrigin} className={style.selector}>
           <option disabled value="">Select origin</option>
@@ -147,20 +139,21 @@ function Home() {
           <option disabled value="">Select order</option>
           <option value="ascending">A-Z</option>
           <option value="descending">Z-A</option>
-          <option value="attackAscending">Attack +</option>
-          <option value="attackDescending">Attack -</option>
+          <option value="attackAscending">Attack - +</option>
+          <option value="attackDescending">Attack + -</option>
         </select>
       </div>
       </div>
       <div className={style.buttonContainer}>
-        <button onClick={reset} className={style.boton}>Reset Filters</button>
+        <button onClick={reset} className={style.button}>Reset Filters</button>
       </div>
 
-      <div className={style.paginatedContainer}>
+      <Paginated/>
+      {/* <div className={style.paginatedContainer}>
         <button onClick={handlePrevious} className={style.boton}>Previous</button>
         <div>PokePage {currentPage} / {totalPages}</div>
         <button onClick={handleNext} className={style.boton}>Next</button>
-      </div>
+      </div> */}
 
       {(!displayedPokemons.length) ? <h2 className={style.noPokemon}>No pokemons found! Try with Reset Filters</h2> : 
       <div className={style.pokemonsContainer}>
@@ -168,7 +161,7 @@ function Home() {
           <Pokemon key={pokemon.id} pokemon={pokemon} />
         ))}
       </div>}
-      
+      <Paginated/>
     </div>
   );
 }

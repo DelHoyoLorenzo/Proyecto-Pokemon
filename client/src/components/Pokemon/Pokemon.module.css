@@ -39,7 +39,17 @@
 }
 
 .imagen{
-    background-color: black;
-    border-radius: 250px;
-    width: 300px;
+  background-color: black;
+  border-radius: 250px;
+  width: 300px;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.typesContainer{
+  display: flex;
+}
+
+.typeContainer{
+  margin-right: 40px;
 }

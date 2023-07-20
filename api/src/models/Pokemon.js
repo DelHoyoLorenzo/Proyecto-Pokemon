@@ -11,8 +11,8 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     name: {
-      type: DataTypes.STRING,
-      unique: true, // 
+      type: DataTypes.STRING,//hasta 256 caracteres
+      unique: true, 
       allowNull: false,
     },
     image:{

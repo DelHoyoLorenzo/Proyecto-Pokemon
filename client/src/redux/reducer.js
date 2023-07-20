@@ -169,6 +169,7 @@ const rootReducer = (state = initialState, action) => {
         allTypes: action.payload,
       };
     case "SET_POKEMON":
+      console.log('reducer', action.payload)
       return {
         ...state,
         pokemonCreated: action.payload,

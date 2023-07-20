@@ -4,7 +4,8 @@
     background-position: center;
     height: 100vh;
     width: 100%;
-    display: flex; 
+    display: flex;
+    overflow: hidden;
 }
 
 .firstContainer{
@@ -22,7 +23,7 @@
 
 .imagen{
     height: 407px;
-    margin-left: 20%;
+    margin-left: 15%;
 }
 .typesContainer{
     display: flex;
@@ -40,8 +41,15 @@
 }
 
 .icon{
-    font-size: xx-large;
+    font-size: 80px;
     &:hover{
         cursor: pointer;
     }
+}
+
+.everyDetailStyle{
+    background: #2D4059;
+    border-radius: 20px;
+    padding: 20px;
+    color: yellow;
 }

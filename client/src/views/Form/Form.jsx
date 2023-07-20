@@ -1,18 +1,12 @@
-import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { reFillPokemons, bringPokemons, chooseFilters, chooseOrder} from "../../redux/actions";
-import {validatePokemon, validateTypes} from "../../utils/validation";
 import useForm from "../../Hooks/useForm"; 
 import style from "./Form.module.css";
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import {TiBackspace} from 'react-icons/ti'
+
 function Form() {
   let navigate = useNavigate()
   const allTypes = useSelector((state) => state.allTypes);
-  const allPokemons = useSelector((state) => state.allPokemons)
-  const dispatch = useDispatch()
-
 
   const {
     handleSubmit,
@@ -23,59 +17,39 @@ function Form() {
     errorsTypes,
     pokemonCreated,
     typesPokemonCreated,
-    created
   } = useForm()
 
   let backHandler = function(){
     navigate('/home')
   }
 
-  let finishHandler = function(){
-    /* navigate('/home') */
-    console.log(created)
-    // if(created){
-    //   dispatch(chooseFilters({
-    //     origin:'Select Origin',
-    //     typeOne:'Select filter One',
-    //     typeTwo:'Select filter two',
-    //   }))
-    //   dispatch(chooseOrder('Select Order'))
-    //   /* dispatch(bringPokemons()) */
-    //   dispatch(reFillPokemons())
-    //   dispatch(resetFilter())
-    //   dispatch(setCurrentPage(1))
-    //   let created = false;
-    // }
-  }
-/* console.log(pokemonCreated)
-console.log(typesPokemonCreated) */
-
 return (
   <div className={style.firstContainer}>
   <TiBackspace className={style.icon} onClick={backHandler}>Back</TiBackspace>
   <form className={style.formContainer}>
     <div className={style.inputDiv}>
-      <label>*Name</label>
+      <p>* Required fields</p>
+      <label>Name*</label>
       <input value={pokemonCreated.name} name="name" onChange={handleInput} />
       <p className={style.error}>{errorsPokemon?.name}</p>
     </div>
     <div className={style.inputDiv}>
-      <label>*Image URL</label>
-      <input value={pokemonCreated.image} type='text' name="image" onChange={handleInput} />
+      <label>Image URL*</label>
+      <input value={pokemonCreated.image} type='text' name="image" onChange={handleInput} placeholder="default image if empty"/>
       <p className={style.error}>{errorsPokemon?.image}</p>
     </div>
     <div className={style.inputDiv}>
-      <label>*HP</label>
+      <label>HP*</label>
       <input value={pokemonCreated.hp} type="text" name="hp" onChange={handleInput} />
       <p className={style.error}>{errorsPokemon?.hp}</p>
     </div>
     <div className={style.inputDiv}>
-      <label>*Attack</label>
+      <label>Attack*</label>
       <input value={pokemonCreated.attack} type="text" name="attack" onChange={handleInput} />
       <p className={style.error}>{errorsPokemon?.attack}</p>
     </div>
     <div className={style.inputDiv}>
-      <label>*Defense</label>
+      <label>Defense*</label>
       <input value={pokemonCreated.defense} type="text" name="defense" onChange={handleInput} />
       <p className={style.error}>{errorsPokemon?.defense}</p>
     </div>

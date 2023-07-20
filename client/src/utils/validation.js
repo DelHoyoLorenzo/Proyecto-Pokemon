@@ -25,6 +25,8 @@ export function validatePokemon(pokemon) {
     errorsPokemon.name = "The pokemon must have a name";
   } else if (!onlyLetters(name)) {
     errorsPokemon.name = "Name must contain only letters";
+  }else if (name.length>20){
+    errorsPokemon.name = 'Name must have less than 20 letters'
   }
   //-----------------------------image---------------------------------
   /* if (!image) {

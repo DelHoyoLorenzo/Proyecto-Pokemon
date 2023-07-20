@@ -2,9 +2,8 @@
     display: grid;
     justify-items: center;
     grid-template-columns: repeat(4, 1fr);
-    margin: 1%;
-    margin-top: 0;
-    margin-bottom: 0;
+    margin-top: 10px;
+    border-top: 2px solid;
   }
   
   .paginatedContainer {
@@ -21,7 +20,7 @@
   }
 
   .selector,
-  .boton {
+  .button {
     margin: 10px; 
     padding: 10px;
   }

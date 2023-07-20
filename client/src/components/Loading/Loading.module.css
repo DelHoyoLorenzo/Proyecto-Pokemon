@@ -4,5 +4,14 @@
     background-repeat: no-repeat;
     height: 100vh; /* Usamos height en lugar de min-height para fijar el alto del contenedor */
     width: 100%;
+    /* background-color: black; */
+    overflow: hidden;
+    border: transparent;
   }
   
+.mainContainer{
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  border: transparent;
+}

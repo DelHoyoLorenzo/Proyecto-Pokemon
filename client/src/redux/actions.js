@@ -72,27 +72,22 @@ export const searchById = (id) => {
     }
   };
 };
+//--------------------------------------------ORDER-----------------------------------
+
+export function chooseOrder(selection){
+  return{
+    type: CHOOSE_ORDER,
+    payload: selection
+  }
+}
 //------------------------------------FILTER-----------------------------------------------
-export function filterByType(type) {
-  return {
-    type: FILTER_BY_TYPE,
-    payload: type,
-  };
-}
-
-export function doubleFilter(type){
+export function chooseFilters(selection){
   return{
-    type: DOUBLE_FILTER,
-    payload: type
+    type: CHOOSE_FILTERS,
+    payload: selection
   }
 }
-
-export function resetFilter(){
-  return{
-    type: RESET_FILTER,
-  }
-}
-//-----------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------
 export function cleanDetail(){
   return{
     type: CLEAN_DETAIL,
@@ -113,22 +108,6 @@ export function setCurrentPage(pageNumber) {
     payload: pageNumber
   }
 } 
-//--------------------------------------------ORDER-----------------------------------
-
-export function orderByName(order){
-  return{
-    type: ORDER_BY_NAME,
-    payload: order
-  }
-}
-
-export function filterByOrigin(origin){
-  return{
-    type: FILTER_BY_ORIGIN,
-    payload: origin
-  }
-}
-//-------------------------------------------------------------------------------------
 
 export function createPokemon(pokemon) {
   return async (dispatch) => {
@@ -139,15 +118,24 @@ export function createPokemon(pokemon) {
         type: CREATE_POKEMON,
         payload: data
       });
-      
       await dispatch(chooseFilters({
         origin:'Select Origin',
         typeOne:'Select filter One',
         typeTwo:'Select filter two',
       }))
       await dispatch(chooseOrder('Select Order'))
-      /* await dispatch(reFillPokemons())
-      await dispatch(resetFilter()) */
+
+      await dispatch(setPokemonGlobal({
+        name:'', 
+        image:'',
+        hp:'',
+        attack:'',
+        defense:'',
+        speed:'',
+        height:'',
+        weight:''
+      }));
+      await dispatch(setTypesGlobal([]));
      return dispatch(setCurrentPage(1))
     } catch (error) {
       alert(error.response.data);
@@ -167,19 +155,5 @@ export function setTypesGlobal(change){
   return{
     type: SET_TYPE_POKEMON_CREATED,
     payload: change
-  }
-}
-
-export function chooseFilters(selection){
-  return{
-    type: CHOOSE_FILTERS,
-    payload: selection
-  }
-}
-
-export function chooseOrder(selection){
-  return{
-    type: CHOOSE_ORDER,
-    payload: selection
   }
 }

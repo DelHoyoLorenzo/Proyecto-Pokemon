@@ -1,4 +1,4 @@
-import { searchByName, bringPokemons, filterByType, resetFilter } from "../../redux/actions";
+import { searchByName, setCurrentPage } from "../../redux/actions";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import style from "./SearchBar.module.css";
@@ -17,6 +17,7 @@ function SearchBar() {
 
   let handleSearchBar = function (name) {
     dispatch(searchByName(name));
+    dispatch(setCurrentPage(1))
   }
 
   return (
@@ -26,7 +27,7 @@ function SearchBar() {
         className={style.input}
         value={searchName}
         onChange={handleChange}
-        placeholder="Pokemon name?"
+        placeholder="Pokename..."
       />
       <div className={style.iconContainer}>
         {searchName && (

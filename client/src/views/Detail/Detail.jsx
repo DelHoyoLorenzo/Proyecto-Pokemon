@@ -12,16 +12,13 @@ function Detail() {
   let navigate = useNavigate();
   let dispatch = useDispatch();
 
-  //busco el pokemon en mi arreglo, para eso me traigo el arreglo
   let pokemonFoundById = useSelector((state) => state.pokemonFoundById);
   let loading = useSelector((state) => state.loading);
-  const { name, image, types, hp, attack, defense, speed, height, weight } =
-    pokemonFoundById;
+  const { name, image, types, hp, attack, defense, speed, height, weight } = pokemonFoundById;
 
   useEffect(() => {
     dispatch(searchById(id));
   }, [id]);
-  /* let pokemonFound = allPokemons.find((pokemon)=> pokemon.id === id) */
 
   let navigateHome = function () {
     navigate("/home");
@@ -32,6 +29,9 @@ function Detail() {
   return (
     <div>
       <div className={style.background}>
+      <div>
+        <TiBackspace className={style.icon} onClick={navigateHome}>Back</TiBackspace>
+      </div>
         <div className={style.firstContainer}>
           <h1 className={style.nameContainer}>{name}</h1>
           <img className={style.imagen} src={image} />
@@ -41,17 +41,26 @@ function Detail() {
             })}
           </div>
         </div>
-      <div>
-        <TiBackspace className={style.icon} onClick={navigateHome}>Back</TiBackspace>
-      </div>
         <div className={style.secondContainer}>
-          <h2>id: {id}</h2>
-          <h2>hp:{hp}</h2>
-          <h2>attack:{attack}</h2>
-          <h2>defense: {defense}</h2>
-          {speed !== 0 && <h2>speed: {speed}</h2>}
-          {weight !== 0 && <h2>weight: {weight}</h2>}
-          {height !== 0 && <h2>height: {height}</h2>}
+          <div>
+
+            <h2 className={style.everyDetailStyle}>id: {id}</h2>
+          </div>
+          <div>
+
+          <h2 className={style.everyDetailStyle}>hp:{hp}</h2>
+          </div>
+          <div>
+
+          <h2 className={style.everyDetailStyle}>attack:{attack}</h2>
+          </div>
+          <div>
+
+          <h2 className={style.everyDetailStyle}>defense: {defense}</h2>
+          </div>
+          {speed !== 0 && <div><h2 className={style.everyDetailStyle}>speed: {speed}</h2></div>}
+          {weight !== 0 && <div><h2 className={style.everyDetailStyle}>weight: {weight}</h2></div>}
+          {height !== 0 && <div><h2 className={style.everyDetailStyle}>height: {height}</h2></div>}
         </div>
       </div>
     </div>
