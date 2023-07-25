@@ -102,8 +102,8 @@ function Home() {
       <div className={style.filtersContainer}>
 {/*----------------------------------------------------------------------------------------------------------------------------------------- */}      
       <div>
-        <select value={filtersChosenLocal.origin === 'Select Origin' ? '' : filtersChosenLocal.origin} onChange={handleOrigin} className={style.selector}>
-          <option disabled value="">Select origin</option>
+        <select value={filtersChosenLocal.origin === 'Select Origin' ? 'All' : filtersChosenLocal.origin} onChange={handleOrigin} className={style.selector}>
+          {/* <option disabled value="">Select origin</option> */}
           <option value="all">All</option>
           <option value="api">API</option>
           <option value="db">DataBase</option>

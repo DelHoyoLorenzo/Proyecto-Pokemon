@@ -21,7 +21,7 @@ export const bringPokemons = () => {
   return async (dispatch) => {
     try {
       dispatch(setLoading(true))
-      let response = await axios('http://localhost:3001/pokemons');
+      let response = await axios('https://pokemon-production-cc31.up.railway.app/pokemons');
       let data = response.data;
       return dispatch({
         type: ALL_POKEMON,
