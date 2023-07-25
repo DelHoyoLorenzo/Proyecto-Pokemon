@@ -43,7 +43,7 @@ export const reFillPokemons = () => {
 export const searchByName = (name) => {
   return async (dispatch) => {
     try {
-      let response = await axios(`http://localhost:3001/pokemons?name=${name}`);
+      let response = await axios(`https://pokemon-production-cc31.up.railway.app/pokemons?name=${name}`);
       let data = response.data;
       return dispatch({
         type: SEARCH_BY_NAME,
@@ -59,7 +59,7 @@ export const searchById = (id) => {
   return async (dispatch) => {
     try {
       dispatch(setLoading(true))
-      let response = await axios(`http://localhost:3001/pokemons/${id}`);
+      let response = await axios(`https://pokemon-production-cc31.up.railway.app/pokemons/${id}`);
       let data = response.data;
       return dispatch({
         type: SEARCH_BY_ID,
