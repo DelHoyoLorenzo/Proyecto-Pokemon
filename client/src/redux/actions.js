@@ -5,7 +5,7 @@ import {ALL_POKEMON, RE_FILL_POKEMONS, SEARCH_BY_NAME, GET_TYPES, SEARCH_BY_ID, 
 export const getTypes = () => {
   return async (dispatch) => {
     try {
-      let response = await axios('http://localhost:3001/types');
+      let response = await axios('https://pokemon-production-cc31.up.railway.app/types');
       let data = response.data;
       return dispatch({
         type: GET_TYPES,
