@@ -9,7 +9,7 @@ async function createTypes(){
     });
     // types es un arreglo con todos los tipos de pokemons, solo con el name, le saque la url
     if (types.length > 0) {
-      await Type.bulkCreate(types);
+      await Type.bulkCreate(types);//bulkCreate se utiliza para insertar múltiples registros en la tabla, mapeo en sql
     }
 }
 

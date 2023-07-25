@@ -13,6 +13,7 @@ const initialState = {
   orderChosen: "Select Order",
 
   pokemonFoundById: {},
+
   loading: false,
   currentPage: 1,
 
@@ -53,7 +54,7 @@ const rootReducer = (state = initialState, action) => {
         });
       }
 
-      if (action.payload.typeTwo !== "Select filter two") {
+      if (action.payload.typeTwo !== "Select filter two" && action.payload.typeTwo !== "") {
         filtered = filtered.filter((pokemon) => {
           if (
             pokemon.types.find((type) => type.name === action.payload.typeTwo)
@@ -118,7 +119,7 @@ const rootReducer = (state = initialState, action) => {
           orderChosen: action.payload,
           allPokemons: [...state.allPokemons],
         };
-        //-------------------------------------------------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
         
     case "RE_FILL_POKEMONS":
       return {
@@ -181,186 +182,9 @@ const rootReducer = (state = initialState, action) => {
         typesPokemonCreated: action.payload,
       };
 
-    // if (action.payload.origin === "api") {
-    //   console.log('entre al primer if')
-    //   if(action.payload.typeOne !== 'Select filter One'){
-    //     console.log('entre al segundo if')
-    //     if(action.payload.typeTwo !== 'Select filter two'){
-    //       console.log('entre al tercer if')
-    //       return {
-    //         ...state,
-    //         filtersChosen: action.payload,
-    //         allPokemons: (state.copyAllPokemons.filter((pokemon) => {if (!isNaN(Number(pokemon.id))) return pokemon;})).filter((pokemon) => {if (pokemon.types.find((type) => type.name === action.payload.typeOne))return pokemon}).filter((pokemon) => {if (pokemon.types.find((type) => type.name === action.payload.typeTwo))return pokemon}),
-    //       };
-    //     }
-    //     return {
-    //       ...state,
-    //       filtersChosen: action.payload,
-    //       allPokemons: (state.copyAllPokemons.filter((pokemon) => {if (!isNaN(Number(pokemon.id))) return pokemon})).filter((pokemon) => {if (pokemon.types.find((type) => type.name === action.payload.typeOne))return pokemon}),
-    //     };
-    //   }
-    //   return {
-    //     ...state,
-    //     filtersChosen: action.payload,
-    //     allPokemons: state.copyAllPokemons.filter((pokemon) => {if (!isNaN(Number(pokemon.id))) return pokemon}),
-    //   };
-
-    // } else if (action.payload.origin === "db") {
-    //   if(action.payload.typeOne !== 'Select filter One'){
-    //     if(action.payload.typeTwo !== 'Select filter two'){
-    //       console.log('entre al tercer if')
-    //       return {
-    //         ...state,
-    //         filtersChosen: action.payload,
-    //         allPokemons: (state.copyAllPokemons.filter((pokemon) => {if (isNaN(Number(pokemon.id))) return pokemon;})).filter((pokemon) => {if (pokemon.types.find((type) => type.name === action.payload.typeOne))return pokemon}).filter((pokemon) => {if (pokemon.types.find((type) => type.name === action.payload.typeTwo))return pokemon}),
-    //       };
-    //     }
-    //     return {
-    //       ...state,
-    //       filtersChosen: action.payload,
-    //       allPokemons: state.copyAllPokemons.filter((pokemon) => {if (isNaN(Number(pokemon.id))) return pokemon;}).filter((pokemon) => {if (pokemon.types.find((type) => type.name === action.payload.typeOne))return pokemon}),
-    //     }
-    //   }
-    //   return {
-    //     ...state,
-    //     filtersChosen: action.payload,
-    //     allPokemons: state.copyAllPokemons.filter((pokemon) => {if (isNaN(Number(pokemon.id))) return pokemon;}),
-    //   };
-    // }
-
-    //   if(action.payload.typeOne !== 'Select filter One'){
-    //     console.log('entre al segundo if')
-    //     if(action.payload.typeTwo !== 'Select filter two'){
-    //       console.log('entre al tercer if')
-    //       return {
-    //         ...state,
-    //         filtersChosen: action.payload,
-    //         allPokemons: state.copyAllPokemons.filter((pokemon) => {if (pokemon.types.find((type) => type.name === action.payload.typeOne))return pokemon}).filter((pokemon) => {if (pokemon.types.find((type) => type.name === action.payload.typeTwo))return pokemon}),
-    //       };
-    //     }
-    //     return {
-    //       ...state,
-    //       filtersChosen: action.payload,
-    //       allPokemons: state.copyAllPokemons.filter((pokemon) => {if (pokemon.types.find((type) => type.name === action.payload.typeOne))return pokemon}),
-    //     };
-    //   }
-    //   return {
-    //     ...state,
-    //     filtersChosen: action.payload,
-    //     allPokemons: [...state.copyAllPokemons]
-    //   };
-
-
     default:
       return { ...state };
   }
 };
 
 export default rootReducer;
-
-// case "FILTER_BY_ORIGIN":
-//   if (action.payload === "api") {
-//     return {
-//       ...state,
-//       allPokemons: state.copyAllPokemons.filter((pokemon) => {
-//         if (!isNaN(Number(pokemon.id))) return pokemon;
-//       }),
-//       apiPokemons: state.copyAllPokemons.filter((pokemon) => {
-//         if (!isNaN(Number(pokemon.id))) return pokemon;
-//       }),
-//     };
-//   } else if (action.payload === "db") {
-//     return {
-//       ...state,
-//       allPokemons: state.copyAllPokemons.filter((pokemon) => {
-//         if (isNaN(Number(pokemon.id))) return pokemon;
-//       }),
-//       pokemonsDb: state.copyAllPokemons.filter((pokemon) => {
-//         if (isNaN(Number(pokemon.id))) return pokemon;
-//       }),
-//     };
-//   }
-//   return {
-//     ...state,
-//     allPokemons: state.copyAllPokemons,
-//   };
-
-//   case "FILTER_BY_TYPE":
-//   if(state.allPokemons.length === state.apiPokemons.length){
-//      console.log('estoy en seccion de api')
-//      return {
-//        ...state,
-//        filteredPokemons: state.allPokemons.filter((pokemon) => {
-//          if (pokemon.types.find((type) => type.name === action.payload))
-//            return pokemon
-//        }),
-//        allPokemons: [...state.apiPokemons].filter((pokemon) => {
-//          if (pokemon.types.find((type) => type.name === action.payload))
-//            return pokemon
-//        }),
-//      };
-//    }
-//    if(state.allPokemons.length === state.pokemonsDb.length){
-//      return {
-//        ...state,
-//        allPokemons: state.pokemonsDb.filter((pokemon) => {if (pokemon.types?.find((type) => type.name === action.payload))return pokemon}),
-//        filteredPokemons: state.pokemonsDb.filter((pokemon) => {
-//          if (pokemon.types.find((type) => type.name === action.payload)) return pokemon
-//         }),
-//      };
-//    }
-//    if(state.allPokemons.length === state.copyAllPokemons.length){
-//      console.log('estoy en la seccion all')
-//       return {
-//         ...state,
-//         allPokemons: state.copyAllPokemons.filter((pokemon) => {
-//           if (pokemon.types.find((type) => type.name === action.payload))
-//             return pokemon;
-//         }),
-//         filteredPokemons: state.copyAllPokemons.filter((pokemon) => {
-//           if (pokemon.types.find((type) => type.name === action.payload))
-//             return pokemon;
-//         }),
-//       };
-
-//    }
-
-// case "DOUBLE_FILTER":
-//   return {
-//     ...state,
-//     allPokemons: state.allPokemons.filter((pokemon) => {
-  //       if (pokemon.types.find((type) => type.name === action.payload))
-  //         return pokemon;
-  //     }),
-  //   };
-  // case "ORDER_BY_NAME":
-  //   if (action.payload === "ascending") {
-  //     return {
-  //       ...state,
-  //       allPokemons: [...state.allPokemons].sort((a, b) =>
-  //         a.name.localeCompare(b.name)
-  //       ),
-  //     };
-  //   } else if (action.payload === "descending") {
-  //     return {
-  //       ...state,
-  //       allPokemons: [...state.allPokemons].sort((a, b) =>
-  //         b.name.localeCompare(a.name)
-  //       ),
-  //     };
-  //   } else if (action.payload === "attackAscending") {
-  //     return {
-  //       ...state,
-  //       allPokemons: [...state.allPokemons].sort(
-  //         (a, b) => a.attack - b.attack
-  //       ),
-  //     };
-  //   } else if (action.payload === "attackDescending") {
-  //     return {
-  //       ...state,
-  //       allPokemons: [...state.allPokemons].sort(
-  //         (a, b) => b.attack - a.attack
-  //       ),
-  //     };
-  //   }
-  //--------------------------------------------------------------------------------------------------------------

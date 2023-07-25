@@ -2,7 +2,7 @@ import style from './Pokemon.module.css'
 import { useNavigate } from 'react-router-dom'
 
 function Pokemon({pokemon}){
-    const {id, name, image, hp, attack, defense, speed, weight, height, types} = pokemon
+    const {id, name, image, hp, attack, defense, speed, weight, height, types, createdBy} = pokemon
 
     let navigate = useNavigate()
     let navigateHandler = function(){
@@ -14,6 +14,7 @@ function Pokemon({pokemon}){
                 <h1>{name}</h1>
             </div>
             <img className={style.imagen} src={image} onClick={navigateHandler}/>
+            <h2>{createdBy}</h2>
             <div className={style.typesContainer}>
                 {types?.map((type, index)=>{
                     return <h2 className={style.typeContainer} key={index}>{type.name}</h2>

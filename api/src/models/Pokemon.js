@@ -67,6 +67,10 @@ module.exports = (sequelize) => {
         max:900.0
       }
     },
+    createdBy:{
+      type: DataTypes.STRING,
+      defaultValue: 'Lorenzo'
+    }
   },
   {
     timestamps: false,

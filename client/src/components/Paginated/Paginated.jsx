@@ -13,13 +13,13 @@ function Paginated() {
   return (
     <div className={style.mainContainer}>
       <div className={style.paginatedContainer}>
-        <button onClick={handlePrevious} className={style.button}>
+        <button disabled ={(currentPage === 1)} onClick={handlePrevious} className={style.button}>
           Previous
         </button>
         <div className={style.numbers}>
           PokePage {currentPage} / {totalPages || 1}
         </div>
-        <button onClick={handleNext} className={style.button}>
+        <button disabled ={(currentPage === totalPages)} onClick={handleNext} className={style.button}>
           Next
         </button>
       </div>

@@ -33,12 +33,6 @@ function Home() {
   useEffect(()=>{ //mantenerlos sincronizados con los estados globales
     setFiltersChosenLocal(filtersChosen)
     setOrderChosenLocal(orderChosen)
-    if(filtersChosen==={
-      origin:'Select Origin',
-      typeOne:'Select filter One',
-      typeTwo:'Select filter two',
-      orderChosen:'Select Order',
-    } /* && orderChosen === 'Select Order' */){bringPokemons()} 
   },[filtersChosen, orderChosen])
 
   useEffect(()=>{
@@ -128,6 +122,7 @@ function Home() {
       {filtersChosenLocal.typeOne !=='Select filter One' ? (
         <select value={filtersChosenLocal.typeTwo === 'Select filter two' ? '' : filtersChosenLocal.typeTwo} onChange={handleSecondTypes} className={style.selector}>
           <option disabled value="">Select second type</option>
+          <option value="">All</option>
           {allTypes.map((type) => {
             return <option key={type.id} value={type.name}>{type.name}</option>;
           })}
@@ -149,11 +144,6 @@ function Home() {
       </div>
 
       <Paginated/>
-      {/* <div className={style.paginatedContainer}>
-        <button onClick={handlePrevious} className={style.boton}>Previous</button>
-        <div>PokePage {currentPage} / {totalPages}</div>
-        <button onClick={handleNext} className={style.boton}>Next</button>
-      </div> */}
 
       {(!displayedPokemons.length) ? <h2 className={style.noPokemon}>No pokemons found! Try with Reset Filters</h2> : 
       <div className={style.pokemonsContainer}>

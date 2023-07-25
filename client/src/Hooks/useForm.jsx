@@ -71,16 +71,12 @@ export default function useForm(){
       };
   
       dispatch(createPokemon(newPokemon));
+      
       // compara el nombre del nuevo pokemon con los nombres existentes en minusculas
       const existingPokemonNames = allPokemons.map((pokemon) => pokemon.name.toLowerCase());
       const newPokemonName = newPokemon.name.toLowerCase();
-      console.log(pokemon)
-      if (!existingPokemonNames.includes(newPokemonName)) {
-        dispatch(setPokemonGlobal({}));
-        dispatch(setTypesGlobal([]));
-        setPokemon({})
-        setTypes([])
-        
+
+      if (!existingPokemonNames.includes(newPokemonName)) {//informo que se creo el pokemon solo si el nombre del nuevo pokemon coincide con alguno de mi arreglo total
         alert('Pokemon created!')
       } 
     }

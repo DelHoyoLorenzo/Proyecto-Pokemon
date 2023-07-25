@@ -1,9 +1,9 @@
 .navConteiner {
     background: #9681EB; /* Color predeterminado para tipos desconocidos */
     border: 2px solid black;
-    border-radius: 50px;
-    margin-left: 10px;
-    margin-right: 10px;
+    /* border-radius: 50px; */
+    /* margin-left: 10px;
+    margin-right: 10px; */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: box-shadow 0.3s;
     animation: rotateColors 12s linear infinite; /* Aumentamos la duración para más colores */
