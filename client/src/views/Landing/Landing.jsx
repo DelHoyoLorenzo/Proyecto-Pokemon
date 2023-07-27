@@ -16,7 +16,7 @@ function Landing(){
         <div className={style.landingBackground}>
             <img src={gif}/>
             <Link to='/home'>
-                <button onClick={clickHandler} className={style.button}>Ingresa a tu pokedex</button>
+                <button onClick={clickHandler} className={style.button}>Your Pokedex</button>
             </Link>
             
         </div>
