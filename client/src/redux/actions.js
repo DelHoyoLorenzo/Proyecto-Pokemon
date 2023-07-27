@@ -5,7 +5,7 @@ import {ALL_POKEMON, RE_FILL_POKEMONS, SEARCH_BY_NAME, GET_TYPES, SEARCH_BY_ID, 
 export const getTypes = () => {
   return async (dispatch) => {
     try {
-      let response = await axios('https://pokemon-production-cc31.up.railway.app/types');
+      let response = await axios('https://back-app-fk5k.onrender.com/types');
       let data = response.data;
       return dispatch({
         type: GET_TYPES,
@@ -21,7 +21,7 @@ export const bringPokemons = () => {
   return async (dispatch) => {
     try {
       dispatch(setLoading(true))
-      let response = await axios('https://pokemon-production-cc31.up.railway.app/pokemons');
+      let response = await axios('https://back-app-fk5k.onrender.com/pokemons');
       let data = response.data;
       return dispatch({
         type: ALL_POKEMON,
@@ -43,7 +43,7 @@ export const reFillPokemons = () => {
 export const searchByName = (name) => {
   return async (dispatch) => {
     try {
-      let response = await axios(`https://pokemon-production-cc31.up.railway.app/pokemons?name=${name}`);
+      let response = await axios(`https://back-app-fk5k.onrender.com/pokemons?name=${name}`);
       let data = response.data;
       return dispatch({
         type: SEARCH_BY_NAME,
@@ -59,7 +59,7 @@ export const searchById = (id) => {
   return async (dispatch) => {
     try {
       dispatch(setLoading(true))
-      let response = await axios(`https://pokemon-production-cc31.up.railway.app/pokemons/${id}`);
+      let response = await axios(`https://back-app-fk5k.onrender.com/pokemons/${id}`);
       let data = response.data;
       return dispatch({
         type: SEARCH_BY_ID,
@@ -112,7 +112,7 @@ export function setCurrentPage(pageNumber) {
 export function createPokemon(pokemon) {
   return async (dispatch) => {
     try {
-      let response = await axios.post('http://localhost:3001/pokemons', pokemon);
+      let response = await axios.post('https://back-app-fk5k.onrender.com/pokemons', pokemon);
       let data = response.data;
       await dispatch({
         type: CREATE_POKEMON,
