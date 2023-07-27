@@ -1,4 +1,5 @@
 .pokemonConteiner {
+  letter-spacing: .1rem;
   display: flex;
   flex-direction: column;
   align-content: center;
