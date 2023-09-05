@@ -14,7 +14,7 @@ function Pokemon({pokemon}){
                 <h1>{name}</h1>
             </div>
             <img className={style.imagen} src={image} onClick={navigateHandler}/>
-            <h2>{createdBy}</h2>
+            {/* <h2>{createdBy}</h2> */}
             <div className={style.typesContainer}>
                 {types?.map((type, index)=>{
                     return <h2 className={style.typeContainer} key={index}>{type.name}</h2>

@@ -6,6 +6,7 @@ import Form from './views/Form/Form'
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { bringPokemons, getTypes } from './redux/actions';
+import './index';
 
 function App() {
   let dispatch = useDispatch();

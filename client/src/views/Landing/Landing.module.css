@@ -1,15 +1,25 @@
 @import url('https://fonts.cdnfonts.com/css/pokemon-solid');
 
-.landingBackground{
+.landingBackground {
   display: flex;
   background-image: url('../../assets/Tumblr.gif');
   background-size: cover;
   background-position: center;
   position: relative;
-  height: 100vh;
+  height: 100vh; /* Usar min-height en lugar de height para permitir el crecimiento del contenido */
   justify-content: center;
   align-items: center;
 }
+
+/* Agregar clases de Tailwind para dispositivos móviles */
+@media (max-width: 640px) { /* Establecer el punto de quiebre para dispositivos móviles */
+  .landingBackground {
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 2rem; 
+  }
+}
+
 
 .button {
   font-family: 'Pokemon Solid', sans-serif;
