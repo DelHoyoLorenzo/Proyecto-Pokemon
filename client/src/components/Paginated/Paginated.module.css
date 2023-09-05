@@ -11,12 +11,18 @@
     background: #93B5C6;
     border-radius: 20px;
     border: 1px solid black;
+    margin: 10px;
 }
 
 .numbers{
     margin-left: 20px;
     margin-right: 20px;
     font-size: 25px;
+}
+@media (max-width:640px){
+  .numbers{
+    font-size: medium;
+  }
 }
 
 .button{
