@@ -3,7 +3,7 @@ import style from './Loading.module.css'
 
 function Loading(){
     return(
-        <div className={style.mainContainer}>
+        <div>
             <img className={style.gif}/>
         </div>
     )
