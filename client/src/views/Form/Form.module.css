@@ -74,9 +74,70 @@
 }
 
 @media (max-width:640px){
-    
-    .formContainer{
-        width: auto;
+    .firstContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-image: url('../../assets/HD wallpaper_ Pokémon, Latias, Latios, pixels, video games, sky, nature.jpg');
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+        min-height: 100vh;
     }
     
+    .formContainer{
+        width: 80vw;
+        margin-bottom: 5px;
+    }
+    
+    .typeContainer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .checkBoxsContainer{
+        margin: 10px;
+        display: grid;
+        justify-items: center;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .eachType{
+        margin:10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .error{
+        color: red;
+        height: 10px;
+    }
+    
+    .icon{
+        font-size: 40px;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    
+    .inputDiv{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .button{
+        padding: 20px;
+        border-radius: 20px;
+        background-color: yellow;
+        font-weight: bold;
+        &:hover{
+            background-color: greenyellow;
+            cursor: pointer;
+        }
+    }
 }

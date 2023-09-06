@@ -34,13 +34,3 @@
   .navConteiner:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   }
-
-.gif{
-    border-radius: 200px;
-    border: 2px solid black;
-    position: relative;
-    top: 85px;
-    left: 280px;
-    width: 100px;
-    height: 100px;
-}

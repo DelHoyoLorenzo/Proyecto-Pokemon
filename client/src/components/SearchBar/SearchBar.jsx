@@ -23,18 +23,21 @@ function SearchBar() {
   return (
     <div className={style.searchBarContainer}>
       <img className={style.gif} src={snorlax}/>
-      <input
-        className={style.input}
-        value={searchName}
-        onChange={handleChange}
-        placeholder="Pokename..."
-      />
-      <div className={style.iconContainer}>
-        {searchName && (
-          <FaSearch className={style.icon} onClick={() => handleSearchBar(searchName.toLocaleLowerCase())}>
-            Search
-          </FaSearch>
-        )}
+      <div className="flex flex-col md:flex md:flex-row md:justify-center md:items-center">
+        <input
+          type="search"
+          className={style.input}
+          value={searchName}
+          onChange={handleChange}
+          placeholder="Pokename..."
+        />
+        <div className={`${style.iconContainer} sm:items-center sm:justify-center`}>
+          {searchName && (
+            <FaSearch className={style.icon} onClick={() => handleSearchBar(searchName.toLocaleLowerCase())}>
+              Search
+            </FaSearch>
+          )}
+        </div>
       </div>
       <Link to='/create'>
         <button className={style.button}>Try your own Pokemon !</button>

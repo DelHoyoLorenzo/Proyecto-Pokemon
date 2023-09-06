@@ -29,7 +29,7 @@ function Detail() {
   if (loading) return <Loading />;
   return (
     <div className={style.background}>
-      <div>
+      <div className="flex flex-col justify-center items-center">
         <TiBackspace className={style.icon} onClick={navigateHome}/>
       </div>
       <div className={style.firstContainer}>

@@ -33,7 +33,7 @@
     flex-direction: row;
 }
 
-.nameContainer{
+.nameDiv{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -86,7 +86,11 @@
         padding: 20px;
         color: yellow;
     }
-    .nameDiv{
-        background-color: red;
+    .nameContainer{
+        padding: 5px;
+        margin:2px;
+        color: aliceblue;
+        background-color: rgba(234, 11, 11, 0.5);
+        border-radius: 10px;
     }
   }
