@@ -1,8 +1,8 @@
 
 
-# **POKEMON APP**
+**POKEMON APP**
 
-## **📌 FEATURES**
+**📌 FEATURES**
 
 -  Browse all the pokemons.
 -  Filter by type, origin, and alphabetical order. Sort by power.
@@ -10,12 +10,11 @@
 -  Search for your Pokémon by name.
 -  View each Pokemon's details by clicking on the card.
 
-<br />
-## **📌 DEPLOY**
+**📌 DEPLOY**
 
 -Link: https://proyecto-pokemon-rose.vercel.app/
 
-## **📌 TECHNOLOGIES**
+**📌 TECHNOLOGIES**
 -React.js
 -Redux
 -CSS, Tailwind CSS
