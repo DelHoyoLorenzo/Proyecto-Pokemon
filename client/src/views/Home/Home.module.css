@@ -7,11 +7,6 @@
     border-top: 2px solid;
     margin: 10px;
   }
-@media (max-width: 540px){
-  .pokemonsContainer{
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
   
   .homeContainer {
     background-image: url('../../assets/HD wallpaper_ Pokémon, Latias, Latios, pixels, video games, sky, nature.jpg');
@@ -33,6 +28,15 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+  }
+
+  @media (max-width: 640px){
+    .pokemonsContainer{
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .filtersContainer{
+      width: 100%;
+    }
   }
 
   .buttonContainer{

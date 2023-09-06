@@ -99,7 +99,7 @@ function Home() {
       </div>
       <NavBar />
 
-      <div className={style.filtersContainer}>
+      <div className='flex flex-col items-center justify-center md:flex-row'>
 {/*----------------------------------------------------------------------------------------------------------------------------------------- */}      
       <div>
         <select value={filtersChosenLocal.origin === 'Select Origin' ? 'All' : filtersChosenLocal.origin} onChange={handleOrigin} className={style.selector}>
