@@ -1,14 +1,25 @@
 
 
-# **POKEMON** | Proyecto Individual
+# **POKEMON APP** |
 
-## **📌 OBJETIVOS**
+## **📌 FEATURES**
 
--  Construir una Single Page Application utlizando las tecnologías: **React**, **Redux**, **Node**, **Express** y **Sequelize**.
--  Poner en práctica recursos básicos de estilos y diseño (UX : UI).
--  Afirmar y conectar los conceptos aprendidos en la carrera.
--  Aprender mejores prácticas.
--  Aprender y practicar el workflow de GIT.
+-  Browse all the pokemons.
+-  Filter by type, origin, and alphabetical order. Sort by power.
+-  Create your own Pokemon with different types, stats, and names.
+-  Search for your Pokémon by name.
+-  View each Pokemon's details by clicking on the card.
 
 <br />
+---------------------------------------------------------------------------------------------------------------------------------
+## **📌 DEPLOY**
 
+-Link: https://proyecto-pokemon-rose.vercel.app/
+
+## **📌 TECHNOLOGIES**
+-React.js
+-Redux
+-CSS, Tailwind CSS
+-Node.js
+-Express.js
+-SQL, PostgreSQL
