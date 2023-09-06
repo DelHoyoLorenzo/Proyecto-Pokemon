@@ -1,6 +1,6 @@
 
 
-# **POKEMON APP** |
+# **POKEMON APP**
 
 ## **📌 FEATURES**
 
@@ -11,7 +11,6 @@
 -  View each Pokemon's details by clicking on the card.
 
 <br />
----------------------------------------------------------------------------------------------------------------------------------
 ## **📌 DEPLOY**
 
 -Link: https://proyecto-pokemon-rose.vercel.app/
