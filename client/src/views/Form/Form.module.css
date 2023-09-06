@@ -72,3 +72,11 @@
         cursor: pointer;
     }
 }
+
+@media (max-width:640px){
+    
+    .formContainer{
+        width: auto;
+    }
+    
+}

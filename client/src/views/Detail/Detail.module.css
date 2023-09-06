@@ -1,17 +1,17 @@
 .background{
+    display: flex;
     background-image: url('../../assets/detailfondo.png');
     background-size: cover; 
     background-position: center;
     height: 100vh;
     width: 100%;
-    display: flex;
-    overflow: hidden;
 }
 
 .firstContainer{
+    position: relative;
     width: 50%;
     height: 100%;
-    left: 0;
+    left: 2;
 }
 
 .secondContainer{
@@ -23,7 +23,7 @@
 
 .imagen{
     height: 407px;
-    margin-left: 25%;
+    margin-left: 20%;
 }
 .typesContainer{
     display: flex;
@@ -53,3 +53,40 @@
     padding: 20px;
     color: yellow;
 }
+
+@media (max-width:640px){
+    .background{
+        display: flex;
+        flex-direction: column;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .imagen{
+        height: 200px;
+    }
+    .icon{
+        font-size: 40px;
+    }
+    .firstContainer{
+        background-color: rgba(45, 64, 89, 0.5);
+        margin: 10px;
+        width: 95%;
+        height: 100%;
+        left: 0;
+    }
+    .secondContainer{
+        margin: 10px;
+        grid-gap: 20px;
+        background-color: rgba(45, 64, 89, 0.5);
+    }
+    .everyDetailStyle{
+        background: transparent;
+        border-radius: 20px;
+        padding: 20px;
+        color: yellow;
+    }
+    .nameDiv{
+        background-color: red;
+    }
+  }
