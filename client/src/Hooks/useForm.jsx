@@ -63,7 +63,7 @@ export default function useForm(){
       let newPokemon = {
         ...pokemon,
         name: pokemon.name.toLowerCase(),
-        image: pokemon.image || image,
+        image: pokemon.image || 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/132.png',
         types,
         speed: pokemon.speed || 0,
         height: pokemon.height || 0,
