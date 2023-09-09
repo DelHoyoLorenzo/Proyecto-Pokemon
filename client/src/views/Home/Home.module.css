@@ -6,6 +6,8 @@
     margin-top: 10px;
     border-top: 2px solid;
     margin: 10px;
+    margin-left: 70px;
+    margin-right: 70px;
   }
   
   .homeContainer {
@@ -33,6 +35,7 @@
   @media (max-width: 640px){
     .pokemonsContainer{
       grid-template-columns: repeat(2, 1fr);
+      margin: 10px;
     }
     .filtersContainer{
       width: 100%;

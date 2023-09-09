@@ -19,19 +19,20 @@ function Pokemon({pokemon}){
     }
     return(
         <div>
-            {modal === true && <DetailModal id={id} close={handleCloseModal}/>}
-            <div onClick={handleModal} className={`${style.pokemonConteiner} hover:cursor-pointer`}>
-                <div>
-                    <h1>{name}</h1>
-                </div>
-                <img className={style.imagen} src={image}/>
-                <div className={style.typesContainer}>
-                    {types?.map((type, index)=>{
-                        return <h2 className={style.typeContainer} key={index}>{type.name}</h2>
-                    })}
-                </div>
-            </div>
-        </div>
+  {modal === true && <DetailModal id={id} close={handleCloseModal} />}
+  <div className={`${style.pokemonConteiner} hover:cursor-pointer`} onClick={handleModal}>
+    <div className='relative bg-white'>
+      <h1 className='absolute top-[-15px] left-1/2 transform -translate-x-1/2 p-2 rounded-t-md mt-[-10px] z-10 bg-red-500 text-xl font-roboto font-extrabold'>{name}</h1>
+      <img className= 'mx-10px w-full shadow-inner z-50' src={image} />
+      <div className='flex justify-evenly bg-black'>
+        {types?.map((type, index) => {
+          return <h2 className='text-white text-lg m-2' key={index}>{type.name}</h2>;
+        })}
+      </div>
+    </div>
+  </div>
+</div>
+
     )
 }
 
