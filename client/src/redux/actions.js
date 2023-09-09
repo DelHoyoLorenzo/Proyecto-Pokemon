@@ -58,7 +58,6 @@ export const searchByName = (name) => {
 export const searchById = (id) => {
   return async (dispatch) => {
     try {
-      dispatch(setLoading(true))
       let response = await axios(`https://back-app-fk5k.onrender.com/pokemons/${id}`);
       let data = response.data;
       return dispatch({
@@ -68,7 +67,6 @@ export const searchById = (id) => {
     } catch (error) {
       alert('Incorrect id')
     } finally{
-      dispatch(setLoading(false))
     }
   };
 };
