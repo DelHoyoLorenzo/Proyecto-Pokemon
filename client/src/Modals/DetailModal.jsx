@@ -29,7 +29,7 @@ function DetailModal({ id, close }) {
   if (!name) {
     return (
       <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-70 backdrop-blur-lg z-10">
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-400 bg-opacity-80 w-3/4 h-3/4 z-50 rounded-lg">
+        <div  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 z-50">
             <LoadingModal/>
         </div>
       </div>
@@ -37,7 +37,7 @@ function DetailModal({ id, close }) {
   }
   return (
     <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-70 backdrop-blur-lg z-10">
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-400 bg-opacity-80 w-3/4 h-auto z-50 rounded-lg">
+      <div style={{ boxShadow: '20px 20px 0px rgba(0, 0, 0, 0.6)' }} className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-400 bg-opacity-80 w-3/4 h-auto z-50 shadow-lg">
         <div className="flex flex-col">
           <div className="flex justify-between items-center border-b-2 border-black">
             <h1 className="font-sans font-bold text-2xl m-2">{name}</h1>
